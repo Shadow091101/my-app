@@ -81,11 +81,11 @@ export default function TextFrom(props) {
     const handleCopy = () => {
         
 
-            var text = document.getElementById('myBox')
-            text.select()
-            text.setSelectionRange(0, 9999);
-            navigator.clipboard.writeText(text.value)
-            document.getSelection().removeAllRanges();
+            // var text = document.getElementById('myBox')
+            // text.select()
+            // text.setSelectionRange(0, 9999);
+            navigator.clipboard.writeText(text)
+            // document.getSelection().removeAllRanges();
             props.showAlert("Text is Copied To Clipboard",'success')
         
     }
@@ -137,7 +137,7 @@ export default function TextFrom(props) {
         color: 'black'
     }
     const darkbg = {
-        backgroundColor: 'grey',
+        backgroundColor: '#270d50',
         color: 'white'
     }
 
@@ -152,7 +152,7 @@ export default function TextFrom(props) {
                 <h1 className={TextColor}>{props.heading}</h1>
                 <div className={`mb-3 ${TextColor}`}>
                     {/* <label for="myBox" className="form-label">Example textarea</label> */}
-                    <textarea className={`form-control border border-${textAreaBorder} text-${textAreaBg}`} style={textAreaBg} value={text} onChange={handleOnchange} id="myBox" rows="8"></textarea>
+                    <textarea className={`textarea form-control border border-${textAreaBorder} text-${textAreaBg}`} style={textAreaBg} value={text} onChange={handleOnchange} id="myBox" rows="8"></textarea>
                 </div>
                 <button disabled={text.length===0} className="btn btn-primary mx-3 my-2" onClick={handleUPclick}>Convert To Uppercase</button>
                 <button disabled={text.length===0} className="btn btn-primary mx-3 my-2" onClick={handleLOclick}>Convert To Lowercase</button>
@@ -180,7 +180,7 @@ export default function TextFrom(props) {
             </div>
             <div className="container" style={{marginBottom:'20px'}}>
                 <h1 className={` ${TextColor}`}>You text Summary</h1>
-                <p className={` ${TextColor}`}>{text.split(' ').filter((element)=>{return element.length!==0}).length} words,{text.length} characters </p>
+                <p className={` ${TextColor}`}>{text.split(/\s+/).filter((element)=>{return element.length!==0}).length} words,{text.length} characters </p>
                 <p className={` ${TextColor}`}>{slow_read_speed} {slow_read_speed_label} needed to read the above text if you are a slow reader(125wpm)</p>
                 <p className={` ${TextColor}`}>{medium_read_speed} {medium_read_speed_label} needed to read the above text if you are a average reader(210wpm)</p>
                 <p className={` ${TextColor}`}>{fast_read_speed} {fast_read_speed_label} needed to read the above text if you are a fast reader(300wpm)</p>

@@ -34,7 +34,7 @@ function App() {
     if (mode === 'light') {
       setMode('dark')
       setSwitchTextMode('light')
-      document.body.style.backgroundColor = 'grey'
+      document.body.style.backgroundColor = '#270d50'
       showAlert("Dark Mode has been enabled", 'success')
       // document.title = "TextUtils-Dark Mode";
     }
