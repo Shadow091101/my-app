@@ -1,4 +1,3 @@
-// import logo from './logo.svg';
 import { useState } from 'react';
 import './App.css';
 import Abouut from './components/Abouut';
@@ -10,11 +9,11 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  // Link
+  
 } from 'react-router-dom';
 
 
-// let name = "manav"
+
 function App() {
   const [mode, setMode] = useState('light');
   const [switchTextMode, setSwitchTextMode] = useState('dark');
@@ -36,14 +35,14 @@ function App() {
       setSwitchTextMode('light')
       document.body.style.backgroundColor = '#270d50'
       showAlert("Dark Mode has been enabled", 'success')
-      // document.title = "TextUtils-Dark Mode";
+      
     }
     else {
       setMode('light')
       setSwitchTextMode('dark')
       document.body.style.backgroundColor = 'white'
       showAlert("Light Mode has been enabled", 'success')
-      // document.title = "TextUtils-Light Mode";
+      
     }
   }
   return (
@@ -59,9 +58,9 @@ function App() {
             <Route exact path='/' element={<TextFrom showAlert={showAlert} heading='Enter the text:' mode={mode} />} />
           </Routes>
 
-          {/* <About /> */}
+          
         </div>
-        {/* <Navbar/> */}
+        
       </Router>
     </>
   );

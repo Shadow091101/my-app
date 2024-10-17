@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 export default function TextFrom(props) {
     const handleUPclick = () => {
-        // console.log("Uppercase was clicked");
+        
         if(text!=='' || /[\w]/.test(text)){
 
             let newText = text.toUpperCase();
@@ -15,7 +15,7 @@ export default function TextFrom(props) {
         }
     }
     const handleLOclick = () => {
-        // console.log("Uppercase was clicked");
+        
         if(text!=='' || /[\w]/.test(text)){
             let newText = text.toLowerCase();
             setText(newText)
@@ -28,8 +28,7 @@ export default function TextFrom(props) {
         }
     }
     const handleclearclick = () => {
-        // console.log("Uppercase was clicked");
-        // let newText=text.toLowerCase();
+        
         if(text!==''){
             setText('')
             props.showAlert('Text Cleared','success')
@@ -38,7 +37,7 @@ export default function TextFrom(props) {
     }
     const handleOnchange = (event) => {
         
-        // console.log("on change");
+        
         setText(event.target.value)
     }
     
@@ -79,16 +78,9 @@ export default function TextFrom(props) {
     }
     
     const handleCopy = () => {
-        
-
-            // var text = document.getElementById('myBox')
-            // text.select()
-            // text.setSelectionRange(0, 9999);
             navigator.clipboard.writeText(text)
-            // document.getSelection().removeAllRanges();
             props.showAlert("Text is Copied To Clipboard",'success')
-        
-    }
+        }
     
     const handleExtraSpaces = () => {
         if(text!==''){
@@ -102,16 +94,14 @@ export default function TextFrom(props) {
 
     const [text, setText] = useState('')
     const [textColor, setTextColor] = useState('black')
-    // textColor='black'
-    // text='new task';//Wrong way to change the state
-    // setText('new Text')
+    
     console.log(useState('Enter text here2'))
     console.log(typeof text)
 
-// filter((element)=>{return element.length!==0}).length
     let slow_read_speed = 0.008 * text.split(' ').filter((element)=>{return element.length!==0}).length;
     let medium_read_speed = 0.0047 * text.split(' ').filter((element)=>{return element.length!==0}).length;
     let fast_read_speed = 0.003 * text.split(' ').filter((element)=>{return element.length!==0}).length;
+
     // Labels for reading time units
     let slow_read_speed_label = 'minutes';
     let medium_read_speed_label = 'minutes';
@@ -142,7 +132,7 @@ export default function TextFrom(props) {
     }
 
     const TextColor = props.mode === 'light' ? 'text-dark' : 'text-light'
-    // const textAreaColor = props.mode === 'light' ? lightbg : darkbg
+    
     const textAreaBorder = props.mode === 'light' ? 'border-dark' : 'border-light'
     const textAreaBg = props.mode === 'light' ? lightbg : darkbg
     console.log(TextColor)
@@ -151,7 +141,7 @@ export default function TextFrom(props) {
             <div className='container'>
                 <h1 className={TextColor}>{props.heading}</h1>
                 <div className={`mb-3 ${TextColor}`}>
-                    {/* <label for="myBox" className="form-label">Example textarea</label> */}
+                    
                     <textarea className={`textarea form-control border border-${textAreaBorder} text-${textAreaBg}`} style={textAreaBg} value={text} onChange={handleOnchange} id="myBox" rows="8"></textarea>
                 </div>
                 <button disabled={text.length===0} className="btn btn-primary mx-3 my-2" onClick={handleUPclick}>Convert To Uppercase</button>
@@ -190,7 +180,7 @@ export default function TextFrom(props) {
                     <textarea className={`form-control border border-${textAreaBorder} text-${textAreaBg}`} style={{textAreaBg,color: textColor}} value={text}  id="myBox" rows="8" readOnly='true' ></textarea>
                 </div>
             </div>
-                {/* <p  style={{ color: textColor }}>{text}</p> */}
+                
         </>
     )
 }
